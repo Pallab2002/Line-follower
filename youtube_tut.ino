@@ -133,8 +133,10 @@ void loop()
     MoCTRL(OnRun);
 }
 
+// Calibrate sensor
 void CalSnX()
 {
+    // Save the current running time in Tm0
     Tm0 = millis();
     Tm1 = Tm0;
     unsigned long TmL;
@@ -144,6 +146,7 @@ void CalSnX()
         MinX[i] = SenX[i];
         MaxX[i] = SenX[i];
     }
+    // Within 10000ms of running
     while ((millis() - Tm0) <= 10000)
     {
         for (byte i = 0; i < IR; i++)
